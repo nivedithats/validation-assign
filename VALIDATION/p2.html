@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>email validation</title>
+</head>
+<body>
+    <center>
+        <h1>Email Validation</h1>
+    </center>
+    <hr>
+
+    <form autocomplete="off" onsubmit="emailHandler(event)">
+        <label for="email">Email address</label>
+        <input type="text " name="email" id="email" placeholder="Enter your email">
+
+
+        <strong id="result"></strong>
+        <button type="submit">Submit email</button>
+    </form>
+
+
+
+    <script>
+        let email = document.getElementById('email');
+        let result = document.getElementById('result');
+
+
+        function emailHandler(e){
+            e.preventDefault();
+            let  regex = /^\S+\@\S+\.\S+$/; //admin@gmail.com
+          // let regex = /^\S+\@\S+\.\S+\%$/; //admin@gmail.com%
+          // let regex = /^\S+ \S+$/; //name name
+         // let regex = /^[a-zA-Z]+\@[a-zA-Z]+\.\S +$/
+
+
+
+            if(email.value.length === 0){
+                result.innerHTML = "please enter email field"
+                email.style.border = "2px solid red ";
+                result.style.color = "red";
+            }
+            else{
+                console.log(regex.test(email.value));
+                if(regex. test (email.value) === false){
+                    result.innerHTML = "please enter valid email"
+                    email.style.border = "2px solid red ";
+                    result.style.color = "red";
+                }
+                else{
+                    result.innerHTML = " valid email"
+                    email.style.border = "2px solid green ";
+                    result.style.color = "green";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

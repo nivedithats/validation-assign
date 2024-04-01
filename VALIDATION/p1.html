@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<center>
+    <h1>Username  validation</h1>
+
+</center>
+<hr>
+
+<form autocomplete="off" onsubmit="userHandler(event)">
+
+    <label for="name">Username</label>
+    <input type="text" name="username" id="name" placeholder="Enter your name"  minlength="5" max="15">
+    <strong id="result"></strong>
+    <button type="submit">Submit User</button>
+</form>
+    
+
+
+
+<script>
+
+    let user = document.getElementById('name');
+    let result = document.getElementById('result');
+
+
+
+    function userHandler(e){
+        e.preventDefault() //[prevent the page refresh ]
+        if(user.value.length ===0){
+            
+            result.innerHTML = "pleace enter  username"
+            user.style.border = "2px solid red ";
+            result.style.color = "red";
+        }
+        else{
+            if(user.value.length <=5){
+                result.innerHTML = "pleace enter valid username"
+                user.style.border = "2px solid red ";
+                result.style.color = "red";
+            }
+            else{
+                result.innerHTML = " valid username"
+                user.style.border = "2px solid green ";
+                result.style.color = "green";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
